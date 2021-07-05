@@ -1,0 +1,20 @@
+<div *ngIf="isLoaded$ | async" class="container">
+    <zi-button (click)="back()">
+        Back
+    </zi-button>
+
+    <div *ngIf="!(error$ | async) && member$ | async as member" class="container-card">
+        <!-- <div class="item-header"><img src="./assets/images/person-placeholder-portrait.png" /></div> -->
+        <img class="item-header" src="./assets/images/person-placeholder-portrait.png" />
+        <div class="item-title">{{member.id}} - {{member.name}}</div>
+        <div class="item-content"> {{member.description}}</div>
+    </div>
+
+    <div *ngIf="error$ | async as error" class="not-authorised-err">
+        Oops, You are not authorised to see this members details. Please go back to the main page and try somebody else.
+    </div>    
+
+</div>
+<div *ngIf="isLoading$ | async" class="member-loader">
+    <zi-loader></zi-loader>
+</div>

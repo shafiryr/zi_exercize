@@ -1,0 +1,50 @@
+@import "../../../../styles/base.scss";
+
+.container {
+    width: 90%;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: 0.1fr 1fr;
+    grid-template-rows: auto;
+    grid-column-gap: 50px; 
+    
+    &-card {
+        display: grid;
+        grid-template-columns: 0.1fr 1fr;
+        grid-template-rows: auto auto;
+        grid-row-gap: 30px;
+        grid-column-gap: 30px; 
+        border: 1px solid $jungle-mist;
+        padding: 20px;
+
+        .item-header {
+            grid-column: 1;
+            grid-row: 1;
+            width: 100px;
+            border: 1px solid $jungle-mist;
+        }
+        .item-title {
+            grid-column: 2;
+            grid-row: 1;
+        }
+        .item-content {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 2;
+            grid-row-end: span 3;
+        }       
+    } 
+
+    .not-authorised-err {        
+        border: 1px solid $jungle-mist;
+        padding: 20px;
+        text-align: center;
+    }
+
+  
+}
+
+.member-loader {
+    position: relative;
+    height: 400px;
+}

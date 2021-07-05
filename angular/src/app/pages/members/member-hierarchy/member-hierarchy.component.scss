@@ -1,0 +1,35 @@
+@import '../../../../styles/base.scss';
+
+.container {
+    @include flex(center, center);  
+    height: 100%; 
+
+    &-hierarchy {
+        @include flex(center, center);              
+    }
+
+    .list-hierarchy {  
+      @include flex(center, center);  
+      column-gap: 20px;   
+      
+      .hierarchy-link {
+        color: $cerulean;
+      }
+    
+      .hierarchy:not(:last-child) a {  
+        margin-right: 20px
+      }
+    
+      .hierarchy:last-child span {
+        display: none;
+      }
+    }  
+
+    .hierarchy-loader {    
+        position: relative;
+    }
+  }
+  
+  
+ 
+  

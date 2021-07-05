@@ -1,0 +1,15 @@
+<div class="container">
+    <div *ngIf="hierarchyIsLoaded$ | async" class="container-hierarchy">
+        <div *ngIf="membersHierarchy$ | async as hierarchy" class="list-hierarchy">
+            <div *ngFor="let parent of hierarchy | split : delimiter" class="hierarchy">
+                <a [routerLink]="['/app/member', parent | getMemberId : (listItems$ | async)]"
+                    class="hierarchy-link">{{parent}}</a>
+                <span>&#45;&#62;</span>
+            </div>
+        </div>
+        <div *ngIf="!(membersHierarchy$ | async)" class="hierarchy-not-found">No Hierarchy found</div>
+    </div>
+    <div *ngIf="hierarchyIsLoading$ | async" class="hierarchy-loader">
+        <zi-loader></zi-loader>
+    </div>
+</div>
